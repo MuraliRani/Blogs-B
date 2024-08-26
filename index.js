@@ -11,6 +11,10 @@ dotenv.config();
 
 const app = express();
 
+app.get('/', (req, res) => {
+  res.send('it is working')
+})
+
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,6 +26,7 @@ const password = process.env.DB_PASSWORD;
 
 // Connection(username, password);
 Connection(process.env.DB_USERNAME, process.env.DB_PASSWORD);
+
 
 
 app.listen(PORT, () =>
